@@ -153,3 +153,12 @@ function popUp() {
         $(".modal-body").append(newP);
     });
 }
+
+var carro={
+    nombre: "",
+    correo: "",
+    telefono: "",
+    sexo: "",
+    fecha: "",
+    servicio: ""
+}
