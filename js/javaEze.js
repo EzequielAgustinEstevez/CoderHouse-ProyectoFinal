@@ -157,16 +157,9 @@ function popUp() {
 
 var sexo;
 var serviciosSeleccionados;
-
+var baseDeDatos = [];
 function guardado() {
     $(document).ready(function () {
-
-        /*   guardadoLocal = JSON.parse(localStorage.getItem("turno"));
-          if (guardadoLocal == 'undefined') {
-          } else {
-              var nuevoGuardado = JSON.stringify(arregloPersona)
-          }  */
-
         /* Funcion constructora objeto */
         function AgregarDatos(nombre, correo, tel, fech, sex, servicio) {
             this.nombre = nombre;
@@ -177,62 +170,55 @@ function guardado() {
             this.servicios = servicio;
         }
 
-        /* var i;
-        for (i = 4; i <= 8; i++) {
-            var newUser = "user" + i;
-            var newValue = "value" + i;
-            jsonObj.members.viewers[newUser] = newValue;
-
-        } */
-
-
-        var turno = []
-        var turno  = new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), sexo, serviciosSeleccionados)
-        alert(turno.nombre)
-        var turnoNuevo = turno +  new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), sexo, serviciosSeleccionados)
-
-        localStorage.setItem(`turno`, JSON.stringify(turno)); /* Guardar turno */
-
-
-
-        guardadoLocal = JSON.parse(localStorage.getItem("turno"));
-        alert(guardadoLocal.nombre)
-        /* var objeto = [{
-            'nombre': 
-            'correo': 
-            'tel': 
-            'fecha': 
-            'sexo': 
-            'servicios': 
+        //verifica si existe la base de datos y decide si la crea o la actualiza
+        if (localStorage.getItem("turno") === null) {
+            alert("No Existe")
+            var baseDeDatos = [];
+            // Agrega datos actuales al array baseDeDatos
+            baseDeDatos.push(new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val()))
+            // Guarda datos actuales en LocalStorage
+            localStorage.setItem(`turno`, JSON.stringify(baseDeDatos)); /* Guardar JSON */
+        } else {
+            alert("Existe")
+            //Carga la base de datos
+            var guardadoLocal = JSON.parse(localStorage.getItem("turno")); /* carga JSON en variable */
+            //Agrega datos actuales en LocalStorage
+            guardadoLocal.push(new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val()))
+            //Guarda datos actualizados en LocalStorage
+            localStorage.setItem(`turno`, JSON.stringify(guardadoLocal)); /* Guardar JSON */
         }
-        ] */
-
-        /* Recorro el arreglo y voy creando un objeto de tipo Persona con cada componente (objeto) del arreglo */
-        /* var arregloPersona = guardadoLocal.map((datos) => {
-            return new agregarDatos(datos.nombre, datos.correo, datos.tel, datos.fecha, datos.sexo, datos.servicios)
-        }) */
-
-        /* var arregloPersona = []
-        guardadoLocal.forEach(function (datos) {
-            arregloPersona.push(new agregarDatos(datos.nombre, datos.correo, datos.tel, datos.fecha, datos.sexo, datos.servicios))
-        }) */
-
-        /*         localStorage.setItem(`turno`, JSON.stringify(objeto));
-
-                guardado = JSON.parse(localStorage.getItem("turno")); */
+    });
+}
 
 
 
-        /* $(".guardados").text("")
-        var seleccionados = $("<p>");
-        seleccionados.addClass("guardados");
+function carrito() {
+    $(document).ready(function () {
 
-        seleccionados.html(`Nombre: ${guardadoLocal.nombre} <br />
-        Correo Electrónico: ${guardadoLocal.correo} <br />
-        Teléfono: ${guardadoLocal.tel} <br />
-        Fecha: ${guardadoLocal.fecha} <br />
-        Sexo: ${guardadoLocal.sexo} <br />
-        Servicios: ${guardadoLocal.servicios}`);
-        $(".guardados").append(seleccionados); */
+        var guardadoLocal = JSON.parse(localStorage.getItem("turno"));
+        var i = -1;
+        var seleccionados = $("<p>"); //asignar parrafo a variable
+        //$(".guardados").text("") //borrar clase
+        // seleccionados.html("")
+        $(".guardados").append(seleccionados);
+        guardadoLocal.forEach(element => {
+            i++;
+            alert("vuelta" + i)
+            cargar(i,guardadoLocal)
+        })
+        function cargar(i,guardadoLocal) {
+            $(".guardados").attr('id', `turno${i}`); //asignar contenido de variable a clase .guardados
+            
+            //texto de carrito            
+            seleccionados.addClass("guardados"); //agregar clase guardados a variable de parrafo
+            seleccionados.html(`Nombre: ${guardadoLocal[i].nombre} <br />
+            Correo Electrónico: ${guardadoLocal[i].correo} <br />
+            Teléfono: ${guardadoLocal[i].tel} <br />
+            Fecha: ${guardadoLocal[i].fecha} <br />
+            Sexo: ${guardadoLocal[i].sexo} <br />
+            Servicios: ${guardadoLocal[i].servicios}`); //asignar html a variable
+            $("#turno${i}").append(seleccionados);
+            alert(i)
+        }    
     });
 }
