@@ -115,17 +115,16 @@ $(document).ready(function () {
         });
     });
 });
-var serviciosSeleccionados = new Array();
 /* Popup boton */
 function popUp() {
     $(document).ready(function () {
+        var serviciosSeleccionados = new Array();
         /* var serviciosSeleccionados = new Array(); */
         /* Verificar serviciosSeleccionados */
         $('input[type=checkbox]:checked').each(function () {
             serviciosSeleccionados.push($(this).attr("name"));
         });
-        
-        
+
         /* var splitSerivios = serviciosSeleccionados.split(" ").attr("name") */
 
         /* Verificar sexo */
@@ -151,14 +150,78 @@ function popUp() {
 
         /* Cargar contenido en clase .modal.body */
         $(".modal-body").append(newP);
+
+
     });
 }
 
-var carro={
-    nombre: "",
-    correo: "",
-    telefono: "",
-    sexo: "",
-    fecha: "",
-    servicio: ""
+var sexo;
+var serviciosSeleccionados;
+
+function guardado() {
+    $(document).ready(function () {
+
+      /*   guardadoLocal = JSON.parse(localStorage.getItem("turno"));
+        if (guardadoLocal == 'undefined') {
+        } else {
+            var nuevoGuardado = JSON.stringify(arregloPersona)
+        }  */
+        
+        /* Funcion constructora objeto */
+        function AgregarDatos(nombre, correo, tel, fech, sex, servicio) {
+            this.nombre = nombre;
+            this.correo = correo;
+            this.tel = tel;
+            this.fecha = fech;
+            this.sexo = sex;
+            this.servicios = servicio;
+        }
+        var turno = new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), sexo, serviciosSeleccionados)
+        alert(turno.sexo)
+        var turno = new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), sexo, serviciosSeleccionados)
+        
+        localStorage.setItem(`turno`, JSON.stringify(turno)); /* Guardar turno */
+        
+        
+        
+        
+        alert(turno.sexo)
+        /* var objeto = [{
+            'nombre': 
+            'correo': 
+            'tel': 
+            'fecha': 
+            'sexo': 
+            'servicios': 
+        }
+        ] */
+
+        /* Recorro el arreglo y voy creando un objeto de tipo Persona con cada componente (objeto) del arreglo */
+        /* var arregloPersona = guardadoLocal.map((datos) => {
+            return new agregarDatos(datos.nombre, datos.correo, datos.tel, datos.fecha, datos.sexo, datos.servicios)
+        }) */
+
+        /* var arregloPersona = []
+        guardadoLocal.forEach(function (datos) {
+            arregloPersona.push(new agregarDatos(datos.nombre, datos.correo, datos.tel, datos.fecha, datos.sexo, datos.servicios))
+        }) */
+
+        /*         localStorage.setItem(`turno`, JSON.stringify(objeto));
+
+                guardado = JSON.parse(localStorage.getItem("turno")); */
+
+
+
+        /* $(".guardados").text("")
+        var seleccionados = $("<p>");
+        seleccionados.addClass("guardados");
+
+        seleccionados.html(`Nombre: ${guardadoLocal.nombre} <br />
+        Correo Electrónico: ${guardadoLocal.correo} <br />
+        Teléfono: ${guardadoLocal.tel} <br />
+        Fecha: ${guardadoLocal.fecha} <br />
+        Sexo: ${guardadoLocal.sexo} <br />
+        Servicios: ${guardadoLocal.servicios}`);
+        $(".guardados").append(seleccionados); */
+    });
 }
