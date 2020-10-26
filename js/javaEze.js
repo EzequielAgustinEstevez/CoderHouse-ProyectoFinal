@@ -161,12 +161,12 @@ var serviciosSeleccionados;
 function guardado() {
     $(document).ready(function () {
 
-      /*   guardadoLocal = JSON.parse(localStorage.getItem("turno"));
-        if (guardadoLocal == 'undefined') {
-        } else {
-            var nuevoGuardado = JSON.stringify(arregloPersona)
-        }  */
-        
+        /*   guardadoLocal = JSON.parse(localStorage.getItem("turno"));
+          if (guardadoLocal == 'undefined') {
+          } else {
+              var nuevoGuardado = JSON.stringify(arregloPersona)
+          }  */
+
         /* Funcion constructora objeto */
         function AgregarDatos(nombre, correo, tel, fech, sex, servicio) {
             this.nombre = nombre;
@@ -176,16 +176,27 @@ function guardado() {
             this.sexo = sex;
             this.servicios = servicio;
         }
-        var turno = new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), sexo, serviciosSeleccionados)
-        alert(turno.sexo)
-        var turno = new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), sexo, serviciosSeleccionados)
-        
+
+        /* var i;
+        for (i = 4; i <= 8; i++) {
+            var newUser = "user" + i;
+            var newValue = "value" + i;
+            jsonObj.members.viewers[newUser] = newValue;
+
+        } */
+
+
+        var turno = []
+        var turno  = new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), sexo, serviciosSeleccionados)
+        alert(turno.nombre)
+        var turnoNuevo = turno +  new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), sexo, serviciosSeleccionados)
+
         localStorage.setItem(`turno`, JSON.stringify(turno)); /* Guardar turno */
-        
-        
-        
-        
-        alert(turno.sexo)
+
+
+
+        guardadoLocal = JSON.parse(localStorage.getItem("turno"));
+        alert(guardadoLocal.nombre)
         /* var objeto = [{
             'nombre': 
             'correo': 
