@@ -172,14 +172,12 @@ function guardado() {
 
         //verifica si existe la base de datos y decide si la crea o la actualiza
         if (localStorage.getItem("turno") === null) {
-            alert("No Existe")
             var baseDeDatos = [];
             // Agrega datos actuales al array baseDeDatos
             baseDeDatos.push(new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val()))
             // Guarda datos actuales en LocalStorage
             localStorage.setItem(`turno`, JSON.stringify(baseDeDatos)); /* Guardar JSON */
         } else {
-            alert("Existe")
             //Carga la base de datos
             var guardadoLocal = JSON.parse(localStorage.getItem("turno")); /* carga JSON en variable */
             //Agrega datos actuales en LocalStorage
@@ -197,28 +195,32 @@ function carrito() {
 
         var guardadoLocal = JSON.parse(localStorage.getItem("turno"));
         var i = -1;
-        var seleccionados = $("<p>"); //asignar parrafo a variable
-        //$(".guardados").text("") //borrar clase
-        // seleccionados.html("")
-        $(".guardados").append(seleccionados);
+        $(".guardados").html("") //borrar contenido anterior
+
+        //Recorre el array
         guardadoLocal.forEach(element => {
             i++;
-            alert("vuelta" + i)
-            cargar(i,guardadoLocal)
+
+            cargar(i, guardadoLocal)
         })
-        function cargar(i,guardadoLocal) {
-            $(".guardados").attr('id', `turno${i}`); //asignar contenido de variable a clase .guardados
+        // Carga al carrito
+        function cargar(i, guardadoLocal) {
+
+            var seleccionados = $("<p>"); //Asignar parrafo a variable
+            seleccionados.html("") //Limpia html si es que tenia
+            $(seleccionados).attr('id', `turno${i}`); //Genera id segun la posicion del array
+            $(`.guardados`).append(seleccionados); //Genera el parrafo en blanco con el id del array
             
             //texto de carrito            
-            seleccionados.addClass("guardados"); //agregar clase guardados a variable de parrafo
             seleccionados.html(`Nombre: ${guardadoLocal[i].nombre} <br />
             Correo Electrónico: ${guardadoLocal[i].correo} <br />
             Teléfono: ${guardadoLocal[i].tel} <br />
             Fecha: ${guardadoLocal[i].fecha} <br />
             Sexo: ${guardadoLocal[i].sexo} <br />
-            Servicios: ${guardadoLocal[i].servicios}`); //asignar html a variable
-            $("#turno${i}").append(seleccionados);
-            alert(i)
-        }    
+            Servicios: ${guardadoLocal[i].servicios}`); //Asignar html a variable
+            
+            $(`#turno${i}`).append(seleccionados);//Carga al nuevo id
+        }
+
     });
 }
