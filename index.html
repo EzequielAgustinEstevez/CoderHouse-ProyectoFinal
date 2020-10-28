@@ -30,9 +30,8 @@
             <div class="row">
                 <!-- recuadro formulario-->
                 <div class="col eze-alineamiento">
-                    <!-- col-sm-6 col-xs-12 -->
                     <div class="col-md-5 col-sm-6 col-xs-12 shadow p-3 mb-5 bg-white rounded">
-                        <form method="post">
+                        <form id="myform" method="post">
                             <div class="form-group ">
                                 <label class="control-label requiredField " for="nombre">
                                     Nombre
@@ -168,7 +167,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary" onclick="guardado()">Reservar</button>
+                                                <button type="button" class="btn btn-primary reservado"
+                                                    onclick="guardado()" data-dismiss="modal">Reservar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -177,6 +177,7 @@
                         </form>
                     </div>
                 </div>
+                <!-- Logo Derecha -->
                 <div class="col eze-alineamiento2" id="centrador">
                     <div id="moverdiv" class="col shadow p-3 mb-5 bg-white rounded">
                         <img id="imagen01" class="card-img-top" src="img/Iunisis-logo.png" alt="">

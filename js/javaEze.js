@@ -1,9 +1,8 @@
-/* Capturardor de servicio select */
+// Capturardor de servicio select
 var select = document.getElementById('servicios');
 select.addEventListener('change',
     function () {
         var selectedOption = this.options[select.selectedIndex];
-        console.log(selectedOption.text);
         var seleccion = selectedOption.text
 
 
@@ -53,11 +52,8 @@ select.addEventListener('change',
                 addElemento("masajeLomi", "Masaje lomi");
                 break;
         }
-
     });
-
-
-/* crear html para seleccion de servicios */
+// Constructor html para seleccion de servicios
 function addElemento(id, nombre) {
 
     var capa1 = document.getElementById(`div-checkbox`);
@@ -67,8 +63,7 @@ function addElemento(id, nombre) {
     div.appendChild(label);
     label.innerHTML = `<input id="${id}" clase= "serviciosespesificos" name="${nombre}" type="checkbox" /> ${nombre}`;
 }
-
-/* AJAX Reconocer Sexo y mostrar imagen acorde */
+// AJAX Reconocer Sexo y muestra imagen acorde
 $(document).ready(function () {
 
     $("#sexoH").click(function () {
@@ -76,7 +71,6 @@ $(document).ready(function () {
             url: 'https://randomuser.me/api/?gender=male',
             dataType: 'json',
             success: function (data) {
-                // console.log(data)
                 data.results.forEach(element => {
                     $("#moverdiv").empty()
                     $("#moverdiv").append(`
@@ -98,7 +92,6 @@ $(document).ready(function () {
             url: 'https://randomuser.me/api/?gender=female',
             dataType: 'json',
             success: function (data) {
-                // console.log(data)
                 data.results.forEach(element => {
                     $("#moverdiv").empty()
                     $("#moverdiv").append(`
@@ -115,49 +108,49 @@ $(document).ready(function () {
         });
     });
 });
-/* Popup boton */
+// PopUp boton
 function popUp() {
     $(document).ready(function () {
-        var serviciosSeleccionados = new Array();
-        /* var serviciosSeleccionados = new Array(); */
-        /* Verificar serviciosSeleccionados */
-        $('input[type=checkbox]:checked').each(function () {
-            serviciosSeleccionados.push($(this).attr("name"));
-        });
-
-        /* var splitSerivios = serviciosSeleccionados.split(" ").attr("name") */
-
-        /* Verificar sexo */
-        if ($("#sexoH").is(':checked')) {
-            var sexo = "Hombre";
-        } else {
-            var sexo = "Mujer";
-        }
         /* Limpiar clase */
         $(".popup").text("")
         /* Crear etiqueta    */
         var newP = $("<p>");
         /* Asignar clase */
         newP.addClass("popup");
-
         /* Contenido de popup */
         newP.html(`Nombre: ${$("#nombre").val()} <br />
         Correo Electrónico: ${$("#correo").val()} <br />
         Teléfono: ${$("#telefono").val()} <br />
         Fecha: ${$("#fecha").val()} <br />
-        Sexo: ${sexo} <br />
-        Servicios: ${serviciosSeleccionados}`);
-
+        Sexo: ${VerSexo()} <br />
+        Servicios: ${ServiciosSelecionados()}`);
         /* Cargar contenido en clase .modal.body */
         $(".modal-body").append(newP);
 
 
     });
 }
+// Verifica que servicio fue selecionado
+function ServiciosSelecionados() {
+    var serviciosSeleccionados = new Array();
 
-var sexo;
-var serviciosSeleccionados;
-var baseDeDatos = [];
+    $('input[type=checkbox]:checked').each(function () {
+        serviciosSeleccionados.push($(this).attr("name"));
+    });
+    return serviciosSeleccionados;
+
+}
+// Verifica que radio buton fue selecionado
+function VerSexo() {
+    /* Verificar sexo */
+    if ($("#sexoH").is(':checked')) {
+        var sexo = "Hombre";
+    } else {
+        var sexo = "Mujer";
+    }
+    return sexo;
+}
+//Guarda en LocalStorge como JSON los datos del formulario
 function guardado() {
     $(document).ready(function () {
         /* Funcion constructora objeto */
@@ -169,27 +162,25 @@ function guardado() {
             this.sexo = sex;
             this.servicios = servicio;
         }
-
         //verifica si existe la base de datos y decide si la crea o la actualiza
         if (localStorage.getItem("turno") === null) {
             var baseDeDatos = [];
             // Agrega datos actuales al array baseDeDatos
-            baseDeDatos.push(new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val()))
+            baseDeDatos.push(new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), VerSexo(), ServiciosSelecionados()))
             // Guarda datos actuales en LocalStorage
             localStorage.setItem(`turno`, JSON.stringify(baseDeDatos)); /* Guardar JSON */
         } else {
             //Carga la base de datos
             var guardadoLocal = JSON.parse(localStorage.getItem("turno")); /* carga JSON en variable */
             //Agrega datos actuales en LocalStorage
-            guardadoLocal.push(new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val()))
+            guardadoLocal.push(new AgregarDatos($("#nombre").val(), $("#correo").val(), $("#telefono").val(), $("#fecha").val(), VerSexo(), ServiciosSelecionados()))
             //Guarda datos actualizados en LocalStorage
             localStorage.setItem(`turno`, JSON.stringify(guardadoLocal)); /* Guardar JSON */
         }
+        $('#myform')[0].reset(); //Borra todos los campos
     });
 }
-
-
-
+//Muestra desde LocalStorge los datos almacenados
 function carrito() {
     $(document).ready(function () {
 
@@ -200,17 +191,14 @@ function carrito() {
         //Recorre el array
         guardadoLocal.forEach(element => {
             i++;
-
             cargar(i, guardadoLocal)
         })
         // Carga al carrito
         function cargar(i, guardadoLocal) {
-
             var seleccionados = $("<p>"); //Asignar parrafo a variable
             seleccionados.html("") //Limpia html si es que tenia
             $(seleccionados).attr('id', `turno${i}`); //Genera id segun la posicion del array
             $(`.guardados`).append(seleccionados); //Genera el parrafo en blanco con el id del array
-            
             //texto de carrito            
             seleccionados.html(`Nombre: ${guardadoLocal[i].nombre} <br />
             Correo Electrónico: ${guardadoLocal[i].correo} <br />
@@ -218,7 +206,7 @@ function carrito() {
             Fecha: ${guardadoLocal[i].fecha} <br />
             Sexo: ${guardadoLocal[i].sexo} <br />
             Servicios: ${guardadoLocal[i].servicios}`); //Asignar html a variable
-            
+
             $(`#turno${i}`).append(seleccionados);//Carga al nuevo id
         }
 
