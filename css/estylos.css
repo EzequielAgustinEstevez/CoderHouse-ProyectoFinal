@@ -14,24 +14,30 @@
   color: red;
 }
 
-.eze-alineamiento {
+/* .eze-alineamiento {
   display: flex;
   align-items: left;
   justify-content: left;
   min-height: 100vh;
   padding: 2em;
 }
+.eze-alineamiento2 {
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  min-height: 12020vh;
+  padding: 2em;
+} */
 
-
-.form {
+/* .form {
   width: 450px;
-}
+} */
 
-#moverdiv {
+/* #moverdiv {
   margin: auto;
   width: 60%;
   padding: 10px;
-}
+} */
 
 
 .help-block {

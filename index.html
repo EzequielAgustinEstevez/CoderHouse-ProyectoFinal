@@ -5,190 +5,189 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iunisis Estética</title>
-
+    <link rel="icon" type="image/vnd.microsoft.icon" href="img/Iunisis-logo.png" sizes="16x16">
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <!-- <link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
     <!-- Personal -->
-    <link href="css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/estylos.css" />
+    <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+    <link href="css/estylos.css" rel="stylesheet" />
 
 </head>
 
-<body>
+<body style="background-color: aquamarine;">
 
-    <div class="bootstrap-iso">
-        <div class="container-fluid ">
-            <div class="row">
-                <!-- recuadro formulario-->
-                <div class="col eze-alineamiento">
-                    <div class="col-md-5 col-sm-6 col-xs-12 shadow p-3 mb-5 bg-white rounded">
-                        <form id="myform" method="post">
-                            <div class="form-group ">
-                                <label class="control-label requiredField " for="nombre">
-                                    Nombre
-                                    <span class="asteriskField">
-                                        *
-                                    </span>
-                                </label>
-                                <input class="form-control" id="nombre" name="nombre" placeholder="Ezequiel Agustin"
-                                    type="text" />
-                                <span class="help-block" id="hint_nombre">
-                                    Ingrese su nombre de pila.
-                                </span>
-                            </div>
-                            <div class="form-group ">
-                                <label class="control-label requiredField" for="correo">
-                                    Correo electr&oacute;nico
-                                    <span class="asteriskField">
-                                        *
-                                    </span>
-                                </label>
-                                <input class="form-control" id="correo" name="correo" placeholder="josePerez@gmail.com"
-                                    type="text" />
-                                <span class="help-block" id="hint_correo">
-                                    Ingrese su correo electronico
-                                </span>
-                            </div>
-                            <div class="form-group ">
-                                <label class="control-label requiredField" for="telefono">
-                                    Tel&eacute;fono
-                                    <span class="asteriskField">
-                                        *
-                                    </span>
-                                </label>
-                                <input class="form-control" id="telefono" name="telefono" placeholder="35127878764"
-                                    type="text" />
-                                <span class="help-block" id="hint_telefono">
-                                    Ingrese su n&uacute;mero telef&oacute;nico sin el 0 ni el 15
-                                </span>
-                            </div>
-                            <!-- Sexo Radio Button -->
-                            <div class="form-group ">
-                                <label class="control-label requiredField">
-                                    Sexo
-                                    <span class="asteriskField">
-                                        *
-                                    </span>
+    <div class="container bg-dark">
+
+        <div class="row col bg-info">
+            <!-- recuadro formulario-->
+            <div class="bg-light">
+                <form id="myform" method="post">
+                    <div class="form-group">
+                        <label class="control-label requiredField " for="nombre">
+                            Nombre
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <input class="form-control" id="nombre" name="nombre" placeholder="Ezequiel Agustin"
+                            type="text" />
+                        <span class="help-block" id="hint_nombre">
+                            Ingrese su nombre de pila.
+                        </span>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label requiredField" for="correo">
+                            Correo electr&oacute;nico
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <input class="form-control" id="correo" name="correo" placeholder="josePerez@gmail.com"
+                            type="text" />
+                        <span class="help-block" id="hint_correo">
+                            Ingrese su correo electronico
+                        </span>
+                    </div>
+                    <div class="form-group ">
+                        <label class="control-label requiredField" for="telefono">
+                            Tel&eacute;fono
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+                        <input class="form-control" id="telefono" name="telefono" placeholder="35127878764"
+                            type="text" />
+                        <span class="help-block" id="hint_telefono">
+                            Ingrese su n&uacute;mero telef&oacute;nico sin el 0 ni el 15
+                        </span>
+                    </div>
+                    <!-- Sexo Radio Button -->
+                    <div class="form-group ">
+                        <label class="control-label requiredField">
+                            Sexo
+                            <span class="asteriskField">
+                                *
+                            </span>
+                        </label>
+
+                        <div class="radio">
+                            <label class="radio-inline">
+                                <label class="radio">
+                                    <input id="sexoH" name="sexo" type="radio" value="Hombre" />
+                                    Hombre
                                 </label>
 
                                 <div class="radio">
-                                    <label class="radio-inline">
-                                        <label class="radio">
-                                            <input id="sexoH" name="sexo" type="radio" value="Hombre" />
-                                            Hombre
-                                        </label>
-
-                                        <div class="radio">
-                                            <label class="radio">
-                                                <input id="sexoMd" name="sexo" type="radio" value="Mujer" />
-                                                Mujer
-                                            </label>
-                                        </div>
-                                </div>
-                                <!-- Sexo Radio Button -->
-                                <!-- Date Piker -->
-                                <div class="form-group ">
-                                    <label class="control-label requiredField" for="date">
-                                        Fecha
-                                        <span class="asteriskField">
-                                            *
-                                        </span>
+                                    <label class="radio">
+                                        <input id="sexoMd" name="sexo" type="radio" value="Mujer" />
+                                        Mujer
                                     </label>
-                                    <input class="form-control" id="fecha" name="fecha" type="date" />
                                 </div>
-                                <!-- Date Piker -->
-                                <!-- Servicios -->
-                                <div class="form-group ">
-                                    <label class="control-label requiredField" for="servios">
-                                        Servicio
-                                        <span class="asteriskField">
-                                            *
-                                        </span>
-                                    </label>
-                                    <select class="select form-control" id="servicios" name="servios">
-                                        <option value="" selected disabled hidden>Seleccione un servicio</option>
-                                        <option value="Masajes">Masajes</option>
-                                        <option value="Manicura">Manicura</option>
-                                        <option value="Faciales">Faciales</option>
-                                        <option value="Depilaci&oacute;n">Depilaci&oacute;n</option>
-                                        <option value="Pelo">Pelo</option>
-                                    </select>
-                                </div>
-                                <!-- Servicios -->
-                                <!-- Sleccion de servicios -->
-                                <div class="form-group ">
-                                    <label class="control-label requiredField">
-                                        Selecci&oacute;ne una opci&oacute;n
-                                    </label>
-                                    <div class=" ">
-                                        <div id="div-checkbox" class="checkbox">
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Sleccion de servicios -->
-                                <div class="form-group">
-                                    <div>
-                                        <button class="btn btn-dark " type="button" onclick="popUp()"
-                                            data-toggle="modal" data-target="#exampleModalCenter">
-                                            Solcitar Turno
-                                        </button>
-                                        <button class="btn btn-dark" type="button" onclick="carrito()">
-                                            Carrito
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- DatepikerPrueba -->
-                                <!-- <p>Date: <input type="text" id="datepicker"></p> -->
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">CONFIRMA TU RESERVA
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Cerrar</button>
-                                                <button type="button" class="btn btn-primary reservado"
-                                                    onclick="guardado()" data-dismiss="modal">Reservar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="resultado" class="guardados"></div>
-                        </form>
-                    </div>
-                </div>
-                <!-- Logo Derecha -->
-                <div class="col eze-alineamiento2" id="centrador">
-                    <div id="moverdiv" class="col shadow p-3 mb-5 bg-white rounded">
-                        <img id="imagen01" class="card-img-top" src="img/Iunisis-logo.png" alt="">
-                        <div class="card-body">
-                            <p class="text-center">BIENESTAR Y SERVICIOS ESTÉTICOS</p>
                         </div>
-                    </div>
+                        <!-- Sexo Radio Button -->
+                        <!-- Date Piker -->
+                        <div class="form-group ">
+                            <label class="control-label requiredField" for="date">
+                                Fecha
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <input class="form-control" id="fecha" name="fecha" type="date" />
+                        </div>
+                        <!-- Date Piker -->
+                        <!-- Servicios -->
+                        <div class="form-group ">
+                            <label class="control-label requiredField" for="servios">
+                                Servicio
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <select class="select form-control" id="servicios" name="servios">
+                                <option value="" selected disabled hidden>Seleccione un servicio</option>
+                                <option value="Masajes">Masajes</option>
+                                <option value="Manicura">Manicura</option>
+                                <option value="Faciales">Faciales</option>
+                                <option value="Depilaci&oacute;n">Depilaci&oacute;n</option>
+                                <option value="Pelo">Pelo</option>
+                            </select>
+                        </div>
+                        <!-- Servicios -->
+                        <!-- Sleccion de servicios -->
+                        <div class="form-group ">
+                            <label class="control-label requiredField">
+                                Selecci&oacute;ne una opci&oacute;n
+                            </label>
+                            <div class=" ">
+                                <div id="div-checkbox" class="checkbox">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Sleccion de servicios -->
+                        <div class="form-group">
+                            <div>
+                                <button class="btn btn-dark " type="button" onclick="popUp()" data-toggle="modal"
+                                    data-target="#exampleModalCenter">
+                                    Solcitar Turno
+                                </button>
+                                <button class="btn btn-dark" type="button" onclick="carrito()">
+                                    Carrito
+                                </button>
+                            </div>
+                        </div>
+                        <!-- DatepikerPrueba -->
+                        <!-- <p>Date: <input type="text" id="datepicker"></p> -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">CONFIRMA TU RESERVA
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary reservado" onclick="guardado()"
+                                            data-dismiss="modal">Reservar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="resultado" class="guardados"></div>
+                </form>
+
+            </div>
+        </div>
+        <div class="row col bg-white">
+            <!-- Logo Derecha -->
+            <div class="bg-warning" id="imagen">
+                <img id="imagen01" class="" src="img/Iunisis-logo.png" alt="" width="auto" height="auto">
+                <div>
+                    <p class="text-center">BIENESTAR Y SERVICIOS ESTÉTICOS</p>
                 </div>
+
             </div>
         </div>
     </div>
+    </div>
+
+
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <!-- Personal -->
     <script src="js/javaEze.js"></script>

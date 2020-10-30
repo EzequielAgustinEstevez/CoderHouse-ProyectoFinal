@@ -72,8 +72,8 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 data.results.forEach(element => {
-                    $("#moverdiv").empty()
-                    $("#moverdiv").append(`
+                    $("#imagen").empty()
+                    $("#imagen").append(`
                 <div>
                 <img width ="300" heigth ="300" src="${element.picture.large}" alt="">                
                 </div>
@@ -93,8 +93,8 @@ $(document).ready(function () {
             dataType: 'json',
             success: function (data) {
                 data.results.forEach(element => {
-                    $("#moverdiv").empty()
-                    $("#moverdiv").append(`
+                    $("#imagen").empty()
+                    $("#imagen").append(`
                 <div>
                 <img width ="300" heigth ="300" src="${element.picture.large}" alt="">                
                 </div>
