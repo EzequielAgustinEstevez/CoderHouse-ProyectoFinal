@@ -66,7 +66,7 @@ function addElemento(id, nombre) {
 // AJAX Reconocer Sexo y muestra imagen acorde
 $(document).ready(function () {
 
-    $("#sexoH").click(function () {
+    $("#sexoH").on('click touchstart' ,function () {
         $.ajax({
             url: 'https://randomuser.me/api/?gender=male',
             dataType: 'json',
@@ -75,7 +75,7 @@ $(document).ready(function () {
                     $("#imagen").empty()
                     $("#imagen").append(`
                 <div>
-                <img width ="300" heigth ="300" src="${element.picture.large}" alt="">                
+                <img class="mx-auto d-block" width="50%" heigth ="300" src="${element.picture.large}" alt="">                
                 </div>
                 
                 `)
@@ -87,7 +87,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#sexoMd").click(function () {
+    $("#sexoMd").on('click touchend' ,function () {
         $.ajax({
             url: 'https://randomuser.me/api/?gender=female',
             dataType: 'json',
@@ -96,7 +96,7 @@ $(document).ready(function () {
                     $("#imagen").empty()
                     $("#imagen").append(`
                 <div>
-                <img width ="300" heigth ="300" src="${element.picture.large}" alt="">                
+                <img class="mx-auto d-block" width="50%" heigth ="300" src="${element.picture.large}" alt="">                
                 </div>
                 
                 `)

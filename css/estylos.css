@@ -49,8 +49,17 @@ input::placeholder {
   font-size: small;
   opacity: 0;
 }
-
+/* Cambio de color de seleccion */
 .form-control:focus {
   border-color: #3eaca2;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px #06443e;
+}
+/* no mostrar barra horizontal */
+::-webkit-scrollbar {
+  display: none;
+}
+
+.carrito{
+  float: left;
+  padding: 10px;
 }
