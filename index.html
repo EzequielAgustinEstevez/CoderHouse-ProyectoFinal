@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -16,14 +16,26 @@
         crossorigin="anonymous"></script>
     <!-- Personal -->
     <!-- <link href="css/styles.css" rel="stylesheet" /> -->
+    <link href="css/menuEstilos.css" rel="stylesheet" />
     <link href="css/estylos.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
 
 </head>
 
 <body>
+    <div id="menu" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Turnos Reservados</a>
+        <div id="resultado" class="guardados"></div>
+
+    </div>
+
+    <span class="tituloTurnos" style="font-size:30px;cursor:pointer" onclick="openNav(), carrito()">&#9776;
+        Turnos</span>
+
+
+
     <div class="container">
-        <h1 style="text-align: center;">Turnos ON-LINE</h1>
         <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                 <!-- Formulario -->
@@ -136,22 +148,17 @@
                             <div>
                                 <button class="btn btn-dark " type="button" onclick="popUp()" data-toggle="modal"
                                     data-target="#exampleModalCenter">
-                                    Solcitar Turno
-                                </button>
-                                <button class="btn btn-dark" type="button" onclick="carrito()">
-                                    Carrito
+                                    Confirmar Turno
                                 </button>
                             </div>
                         </div>
-                        <!-- DatepikerPrueba -->
-                        <!-- <p>Date: <input type="text" id="datepicker"></p> -->
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">CONFIRMA TU RESERVA
+                                        <h5 class="modal-title" id="exampleModalLongTitle"><strong>CONFIRMAR TURNO</strong>
                                         </h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
@@ -159,16 +166,15 @@
                                     </div>
                                     <div class="modal-body">
                                     </div>
-                                    <div class="modal-footer">
+                                    <div class="modal-footer ">
                                         <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Cerrar</button>
+                                            data-dismiss="modal">Modificar</button>
                                         <button type="button" class="btn btn-primary reservado" onclick="guardado()"
-                                            data-dismiss="modal">Reservar</button>
+                                            data-dismiss="modal">Confrirmar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="resultado" class="guardados"></div>
                 </form>
             </div>
         </div>
@@ -188,6 +194,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <!-- Personal -->
     <script src="js/javaEze.js"></script>
+    <script src="js/menuJs.js"></script>
 
 </body>
 

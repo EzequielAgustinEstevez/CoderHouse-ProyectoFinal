@@ -118,12 +118,12 @@ function popUp() {
         /* Asignar clase */
         newP.addClass("popup");
         /* Contenido de popup */
-        newP.html(`Nombre: ${$("#nombre").val()} <br />
-        Correo Electrónico: ${$("#correo").val()} <br />
-        Teléfono: ${$("#telefono").val()} <br />
-        Fecha: ${$("#fecha").val()} <br />
-        Sexo: ${VerSexo()} <br />
-        Servicios: ${ServiciosSelecionados()}`);
+        newP.html(`<strong>Nombre:</strong> ${$("#nombre").val()} <br />
+        <strong>Correo Electrónico:</strong> ${$("#correo").val()} <br />
+        <strong>Teléfono:</strong> ${$("#telefono").val()} <br />
+        <strong>Fecha:</strong> ${$("#fecha").val()} <br />
+        <strong>Sexo:</strong> ${VerSexo()} <br />
+        <strong>Servicios:</strong> ${ServiciosSelecionados()}`);
         /* Cargar contenido en clase .modal.body */
         $(".modal-body").append(newP);
 
@@ -200,12 +200,12 @@ function carrito() {
             $(seleccionados).attr('id', `turno${i}`); //Genera id segun la posicion del array
             $(`.guardados`).append(seleccionados); //Genera el parrafo en blanco con el id del array
             //texto de carrito            
-            seleccionados.html(`Nombre: ${guardadoLocal[i].nombre} <br />
-            Correo Electrónico: ${guardadoLocal[i].correo} <br />
-            Teléfono: ${guardadoLocal[i].tel} <br />
-            Fecha: ${guardadoLocal[i].fecha} <br />
-            Sexo: ${guardadoLocal[i].sexo} <br />
-            Servicios: ${guardadoLocal[i].servicios}`); //Asignar html a variable
+            seleccionados.html(`<strong>Nombre:</strong> ${guardadoLocal[i].nombre} <br />
+            <strong>Correo Electrónico:</strong> ${guardadoLocal[i].correo} <br />
+            <strong>Teléfono:</strong> ${guardadoLocal[i].tel} <br />
+            <strong>Fecha:</strong> ${guardadoLocal[i].fecha} <br />
+            <strong>Sexo:</strong> ${guardadoLocal[i].sexo} <br />
+            <strong>Servicios:</strong> ${guardadoLocal[i].servicios}`); //Asignar html a variable
 
             $(`#turno${i}`).append(seleccionados);//Carga al nuevo id
         }

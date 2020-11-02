@@ -14,32 +14,6 @@
   color: red;
 }
 
-/* .eze-alineamiento {
-  display: flex;
-  align-items: left;
-  justify-content: left;
-  min-height: 100vh;
-  padding: 2em;
-}
-.eze-alineamiento2 {
-  display: flex;
-  align-items: right;
-  justify-content: right;
-  min-height: 12020vh;
-  padding: 2em;
-} */
-
-/* .form {
-  width: 450px;
-} */
-
-/* #moverdiv {
-  margin: auto;
-  width: 60%;
-  padding: 10px;
-} */
-
-
 .help-block {
   color: #989595;
   font-size: small;
@@ -59,7 +33,10 @@ input::placeholder {
   display: none;
 }
 
-.carrito{
+.carrito {
   float: left;
   padding: 10px;
+}
+.popup strong{
+  color: #008378;
 }
