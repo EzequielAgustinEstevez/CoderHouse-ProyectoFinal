@@ -3,7 +3,7 @@ var select = document.getElementById('servicios');
 select.addEventListener('change',
     function () {
         var selectedOption = this.options[select.selectedIndex];
-        var seleccion = selectedOption.text
+        // var seleccion = selectedOption.text
 
 
         switch (selectedOption.text) {
@@ -66,7 +66,7 @@ function addElemento(id, nombre) {
 // AJAX Reconocer Sexo y muestra imagen acorde
 $(document).ready(function () {
 
-    $("#sexoH").on('click touchstart' ,function () {
+    $("#sexoH").on('click touchstart', function () {
         $.ajax({
             url: 'https://randomuser.me/api/?gender=male',
             dataType: 'json',
@@ -87,7 +87,7 @@ $(document).ready(function () {
         });
     });
 
-    $("#sexoMd").on('click touchend' ,function () {
+    $("#sexoMd").on('click touchend', function () {
         $.ajax({
             url: 'https://randomuser.me/api/?gender=female',
             dataType: 'json',
@@ -108,7 +108,7 @@ $(document).ready(function () {
         });
     });
 });
-// PopUp boton
+// PopUp/Modal boton
 function popUp() {
     $(document).ready(function () {
         /* Limpiar clase */
@@ -126,19 +126,15 @@ function popUp() {
         <strong>Servicios:</strong> ${ServiciosSelecionados()}`);
         /* Cargar contenido en clase .modal.body */
         $(".modal-body").append(newP);
-
-
     });
 }
 // Verifica que servicio fue selecionado
 function ServiciosSelecionados() {
     var serviciosSeleccionados = new Array();
-
     $('input[type=checkbox]:checked').each(function () {
         serviciosSeleccionados.push($(this).attr("name"));
     });
     return serviciosSeleccionados;
-
 }
 // Verifica que radio buton fue selecionado
 function VerSexo() {
@@ -178,6 +174,7 @@ function guardado() {
             localStorage.setItem(`turno`, JSON.stringify(guardadoLocal)); /* Guardar JSON */
         }
         $('#myform')[0].reset(); //Borra todos los campos
+        closeNav();//cierra el menú
     });
 }
 //Muestra desde LocalStorge los datos almacenados
@@ -187,14 +184,16 @@ function carrito() {
         var guardadoLocal = JSON.parse(localStorage.getItem("turno"));
         var i = -1;
         $(".guardados").html("") //borrar contenido anterior
+        // alert(guardadoLocal.length)
 
         //Recorre el array
         guardadoLocal.forEach(element => {
             i++;
-            cargar(i, guardadoLocal)
+            cargar(i)
         })
+
         // Carga al carrito
-        function cargar(i, guardadoLocal) {
+        function cargar(i) {
             var seleccionados = $("<p>"); //Asignar parrafo a variable
             seleccionados.html("") //Limpia html si es que tenia
             $(seleccionados).attr('id', `turno${i}`); //Genera id segun la posicion del array
@@ -208,7 +207,23 @@ function carrito() {
             <strong>Servicios:</strong> ${guardadoLocal[i].servicios}`); //Asignar html a variable
 
             $(`#turno${i}`).append(seleccionados);//Carga al nuevo id
+            // Boton eliminar turnos
+            $(`.guardados`).append(`<button id="borrado${i}" type="button" class=" puntitos btn btn-secondary"
+            data-dismiss="modal" onclick="borrarTurno(${i})">&times; Eliminar turno</button>`);
+            $(`#turno${i}`).before(`<p class="puntitos2"></p>`);
         }
 
     });
+}
+// Borra el turno seleccionado
+function borrarTurno(i) {
+    var guardadoLocal = JSON.parse(localStorage.getItem("turno"));
+    guardadoLocal.splice(i, 1);
+    localStorage.setItem(`turno`, JSON.stringify(guardadoLocal));
+    if (guardadoLocal.length === 0) {
+        localStorage.clear();
+        $('#menu').hide();
+    } else {
+        carrito();
+    }
 }
