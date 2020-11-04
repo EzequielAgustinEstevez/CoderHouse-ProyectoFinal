@@ -111,7 +111,7 @@ $(document).ready(function () {
 // Modal boton
 function popUp() {
     $(document).ready(function () {
-
+        
         /* Limpiar clase */
         $(".popup").text("")
         /* Crear etiqueta    */
@@ -229,10 +229,11 @@ function borrarTurno(i) {
         carrito();
     }
 }
+
 // Detectar campos incompletos
 $(document).ready(function() {
     //Al salir de un campo de texto, se chequeará esta función
-    $("#myform input").keyup(function() {
+    $("#myform input").change(function() {
         var form = $(this).parents("#myform");
         var check = checkCampos(form);
         if(check) {
@@ -242,6 +243,9 @@ $(document).ready(function() {
             $("#botonCentral").prop("disabled", true);
         }
     });
+    // $("#servicios").change(function() {
+    //     $("#botonCentral").prop("disabled", false);
+    // });
 });
 
 //Comprobar los campos de texto

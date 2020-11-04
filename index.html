@@ -104,17 +104,6 @@
                                 </div>
                         </div>
                         <!-- Sexo Radio Button -->
-                        <!-- Date Piker -->
-                        <div class="form-group ">
-                            <label class="control-label requiredField" for="date">
-                                Fecha
-                                <span class="asteriskField">
-                                    *
-                                </span>
-                            </label>
-                            <input class="form-control" id="fecha" name="fecha" type="date" />
-                        </div>
-                        <!-- Date Piker -->
                         <!-- Servicios -->
                         <div class="form-group ">
                             <label class="control-label requiredField" for="servios">
@@ -123,8 +112,8 @@
                                     *
                                 </span>
                             </label>
-                            <select class="select form-control" id="servicios" name="servios">
-                                <option value="" selected disabled hidden>Seleccione un servicio</option>
+                            <select class="select form-control seleccion" id="servicios" name="servios">
+                                <option value="nada" selected disabled hidden>Seleccione un servicio</option>
                                 <option value="Masajes">Masajes</option>
                                 <option value="Manicura">Manicura</option>
                                 <option value="Faciales">Faciales</option>
@@ -145,10 +134,21 @@
                             </div>
                         </div>
                         <!-- Sleccion de servicios -->
+                        <!-- Date Piker -->
+                        <div class="form-group ">
+                            <label class="control-label requiredField" for="date">
+                                Fecha
+                                <span class="asteriskField">
+                                    *
+                                </span>
+                            </label>
+                            <input class="form-control" id="fecha" name="fecha" type="date" />
+                        </div>
+                        <!-- Date Piker -->
                         <div class="form-group">
                             <div>
-                                <button class="btn btn-dark " type="button" onclick="popUp()" data-toggle="modal"
-                                    data-target="#exampleModalCenter">
+                                <button id="botonCentral" class="btn btn-dark " type="button" onclick="popUp()" data-toggle="modal"
+                                    data-target="#exampleModalCenter" disabled>
                                     Confirmar Turno
                                 </button>
                             </div>
