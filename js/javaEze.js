@@ -108,9 +108,10 @@ $(document).ready(function () {
         });
     });
 });
-// PopUp/Modal boton
+// Modal boton
 function popUp() {
     $(document).ready(function () {
+
         /* Limpiar clase */
         $(".popup").text("")
         /* Crear etiqueta    */
@@ -175,6 +176,7 @@ function guardado() {
         }
         $('#myform')[0].reset(); //Borra todos los campos
         closeNav();//cierra el menú
+        $("#botonCentral").prop("disabled", true);
     });
 }
 //Muestra desde LocalStorge los datos almacenados
@@ -208,7 +210,7 @@ function carrito() {
 
             $(`#turno${i}`).append(seleccionados);//Carga al nuevo id
             // Boton eliminar turnos
-            $(`.guardados`).append(`<button id="borrado${i}" type="button" class=" puntitos btn btn-secondary"
+            $(`.guardados`).append(`<button id="borrado${i}" type="button" class="puntitos btn btn-secondary"
             data-dismiss="modal" onclick="borrarTurno(${i})">&times; Eliminar turno</button>`);
             $(`#turno${i}`).before(`<p class="puntitos2"></p>`);
         }
@@ -225,5 +227,37 @@ function borrarTurno(i) {
         $('#menu').hide();
     } else {
         carrito();
+    }
+}
+// Detectar campos incompletos
+$(document).ready(function() {
+    //Al salir de un campo de texto, se chequeará esta función
+    $("#myform input").keyup(function() {
+        var form = $(this).parents("#myform");
+        var check = checkCampos(form);
+        if(check) {
+            $("#botonCentral").prop("disabled", false);
+        }
+        else {
+            $("#botonCentral").prop("disabled", true);
+        }
+    });
+});
+
+//Comprobar los campos de texto
+function checkCampos(obj) {
+    var camposRellenados = true;
+    obj.find("input").each(function() {
+    var $this = $(this);
+        if( $this.val().length <= 0 ) {
+            camposRellenados = false;
+            return false;
+        }
+    });
+    if(camposRellenados == false) {
+        return false;
+    }
+    else {
+        return true;
     }
 }
